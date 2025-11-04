@@ -30,26 +30,32 @@ app.use(
 
 app.on(["POST", "GET"], "/api/auth/*", (c) => auth.handler(c.req.raw));
 
-export const apiHandler = new OpenAPIHandler(appRouter, {
-  plugins: [
-    new OpenAPIReferencePlugin({
-      schemaConverters: [new ZodToJsonSchemaConverter()],
-    }),
-  ],
-  interceptors: [
-    onError((error) => {
-      console.error(error);
-    }),
-  ],
-});
+export const apiHandler: OpenAPIHandler<typeof appRouter> = new OpenAPIHandler(
+  appRouter,
+  {
+    plugins: [
+      new OpenAPIReferencePlugin({
+        schemaConverters: [new ZodToJsonSchemaConverter()],
+      }),
+    ],
+    interceptors: [
+      onError((error) => {
+        console.error(error);
+      }),
+    ],
+  },
+);
 
-export const rpcHandler = new RPCHandler(appRouter, {
-  interceptors: [
-    onError((error) => {
-      console.error(error);
-    }),
-  ],
-});
+export const rpcHandler: RPCHandler<typeof appRouter> = new RPCHandler(
+  appRouter,
+  {
+    interceptors: [
+      onError((error) => {
+        console.error(error);
+      }),
+    ],
+  },
+);
 
 app.use("/*", async (c, next) => {
   const context = await createContext({ context: c });
