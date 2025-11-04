@@ -23,7 +23,7 @@ export const Route = createFileRoute("/transactions")({
 });
 
 function RouteComponent() {
-	const { session } = Route.useRouteContext();
+	const { session: _session } = Route.useRouteContext();
 	const queryClient = useQueryClient();
 	const [page, setPage] = useState(1);
 

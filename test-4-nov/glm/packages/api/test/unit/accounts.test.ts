@@ -1,6 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { accountsRouter } from '../../src/routers/accounts';
-import { z } from 'zod';
 
 // Mock the database and context
 const mockDb = {

@@ -5,7 +5,6 @@ import { createFileRoute, redirect } from "@tanstack/react-router";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { useState } from "react";
 
 export const Route = createFileRoute("/recurring")({
 	component: RouteComponent,
@@ -23,7 +22,7 @@ export const Route = createFileRoute("/recurring")({
 });
 
 function RouteComponent() {
-	const { session } = Route.useRouteContext();
+	const { session: _session } = Route.useRouteContext();
 	const queryClient = useQueryClient();
 
 	const { data: recurringBills, isLoading } = useQuery(orpc.recurring.getAll.queryOptions());

@@ -1,5 +1,4 @@
 import { vi } from 'vitest';
-import type { FinancialAccount, BudgetCategory, BudgetAllocation, Transaction, RecurringBill, Goal, User, Account } from '@glm/db/schema';
 
 // Mock the database schema exports
 vi.mock('@glm/db/schema', () => ({

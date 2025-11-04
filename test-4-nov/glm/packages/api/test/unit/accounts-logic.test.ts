@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from 'vitest';
+import { describe, it, expect } from 'vitest';
 
 // Test account validation logic
 describe('Account Logic - Unit Tests', () => {
@@ -62,7 +62,6 @@ describe('Account Logic - Unit Tests', () => {
     });
 
     it('should handle empty accounts list', () => {
-      const accounts: any[] = [];
 
       const totalBalance = '0.00';
       const accountCount = 0;

@@ -4,7 +4,6 @@ import { useQuery, useMutation } from "@tanstack/react-query";
 import { createFileRoute, redirect } from "@tanstack/react-router";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { BarChart, Bar, LineChart, Line, PieChart, Pie, Cell, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
 
 const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#8884D8', '#82CA9D'];
@@ -25,7 +24,7 @@ export const Route = createFileRoute("/reports")({
 });
 
 function RouteComponent() {
-	const { session } = Route.useRouteContext();
+	const { session: _session } = Route.useRouteContext();
 
 	const currentDate = new Date();
 	const currentYear = currentDate.getFullYear();

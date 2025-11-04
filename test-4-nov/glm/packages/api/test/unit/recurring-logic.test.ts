@@ -1,11 +1,10 @@
-import { describe, it, expect, vi } from 'vitest';
+import { describe, it, expect } from 'vitest';
 
 // Test recurring bill calculation logic
 describe('Recurring Bills Logic - Unit Tests', () => {
   describe('Frequency Calculation', () => {
     it('should calculate next due date for daily bills', () => {
       const currentDate = new Date('2024-01-15');
-      const frequency = 'daily';
 
       const nextDueDate = new Date(currentDate);
       nextDueDate.setDate(nextDueDate.getDate() + 1);
@@ -17,7 +16,6 @@ describe('Recurring Bills Logic - Unit Tests', () => {
 
     it('should calculate next due date for weekly bills', () => {
       const currentDate = new Date('2024-01-15');
-      const frequency = 'weekly';
 
       const nextDueDate = new Date(currentDate);
       nextDueDate.setDate(nextDueDate.getDate() + 7);
@@ -29,7 +27,6 @@ describe('Recurring Bills Logic - Unit Tests', () => {
 
     it('should calculate next due date for monthly bills', () => {
       const currentDate = new Date('2024-01-15');
-      const frequency = 'monthly';
 
       const nextDueDate = new Date(currentDate);
       nextDueDate.setMonth(nextDueDate.getMonth() + 1);
@@ -41,7 +38,6 @@ describe('Recurring Bills Logic - Unit Tests', () => {
 
     it('should handle year end for monthly bills', () => {
       const currentDate = new Date('2024-12-15');
-      const frequency = 'monthly';
 
       const nextDueDate = new Date(currentDate);
       nextDueDate.setMonth(nextDueDate.getMonth() + 1);
@@ -53,7 +49,6 @@ describe('Recurring Bills Logic - Unit Tests', () => {
 
     it('should calculate next due date for yearly bills', () => {
       const currentDate = new Date('2024-01-15');
-      const frequency = 'yearly';
 
       const nextDueDate = new Date(currentDate);
       nextDueDate.setFullYear(nextDueDate.getFullYear() + 1);

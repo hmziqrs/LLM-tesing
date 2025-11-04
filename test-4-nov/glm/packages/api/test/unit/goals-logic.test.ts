@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from 'vitest';
+import { describe, it, expect } from 'vitest';
 
 // Test goals calculation logic
 describe('Goals Logic - Unit Tests', () => {

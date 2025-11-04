@@ -26,7 +26,7 @@ export const handlers = [
 
   // ORPC endpoints mock
   rest.post('/api/orpc', (req, res, ctx) => {
-    const { method, params } = req.body as any;
+    const { method } = req.body as any;
 
     // Mock responses based on the ORPC method
     switch (method) {

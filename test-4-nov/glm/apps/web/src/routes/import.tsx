@@ -23,7 +23,7 @@ export const Route = createFileRoute("/import")({
 });
 
 function RouteComponent() {
-	const { session } = Route.useRouteContext();
+	const { session: _session } = Route.useRouteContext();
 	const queryClient = useQueryClient();
 	const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -255,7 +255,7 @@ function RouteComponent() {
 								{ field: 'type', label: 'Type (optional)', required: false },
 								{ field: 'category', label: 'Category (optional)', required: false },
 								{ field: 'note', label: 'Note (optional)', required: false },
-							].map(({ field, label, required }) => (
+							].map(({ field, label, required: _required }) => (
 								<div key={field}>
 									<label className="block text-sm font-medium mb-2">
 										{label}

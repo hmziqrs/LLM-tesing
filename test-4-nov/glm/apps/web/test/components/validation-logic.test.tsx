@@ -197,7 +197,7 @@ describe('Validation Logic - Unit Tests', () => {
   describe('Phone Number Validation', () => {
     it('should validate phone number formats', () => {
       const isValidPhone = (phone: string) => {
-        const phoneRegex = /^\+?[\d\s\-\(\)]+$/;
+        const phoneRegex = /^\+?[\d\s\-(())]+$/;
         const digitsOnly = phone.replace(/\D/g, '');
         return phoneRegex.test(phone) && digitsOnly.length >= 10 && digitsOnly.length <= 15;
       };

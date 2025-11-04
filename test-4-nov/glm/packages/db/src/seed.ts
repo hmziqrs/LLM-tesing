@@ -11,7 +11,6 @@ import {
 	goalStatus,
 	recurringBillFrequency
 } from "./schema";
-import { eq } from "drizzle-orm";
 
 async function seed() {
 	console.log("🌱 Starting database seeding...");

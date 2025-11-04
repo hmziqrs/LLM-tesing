@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from 'vitest';
+import { describe, it, expect } from 'vitest';
 
 // Test budget calculation logic
 describe('Budget Logic - Unit Tests', () => {
@@ -58,7 +58,6 @@ describe('Budget Logic - Unit Tests', () => {
 
     it('should calculate budget period boundaries', () => {
       const now = new Date('2024-01-15');
-      const period = 'monthly';
 
       // Mock calculation for monthly period
       const startOfMonth = new Date(now.getFullYear(), now.getMonth(), 1);
@@ -136,7 +135,6 @@ describe('Budget Logic - Unit Tests', () => {
       const highSpent = parseFloat(highSpendingAllocation.spent);
       const highPercentageSpent = (highSpent / allocated) * 100;
 
-      const highIsWarning = highPercentageSpent >= warningThreshold && highPercentageSpent < criticalThreshold;
       const highIsCritical = highPercentageSpent >= criticalThreshold;
 
       expect(highIsCritical).toBe(true);

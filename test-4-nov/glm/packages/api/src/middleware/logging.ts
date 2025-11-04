@@ -90,7 +90,7 @@ export const authLogger = (): MiddlewareHandler => {
 // Security event logging middleware
 export const securityLogger = (): MiddlewareHandler => {
   return async (c, next) => {
-    const requestLogger = createRequestLogger(c.get('requestId') || 'unknown');
+    const _requestLogger = createRequestLogger(c.get('requestId') || 'unknown');
     const method = c.req.method;
     const path = c.req.path;
     const ip = c.req.header('x-forwarded-for') || c.req.header('x-real-ip') || 'unknown';
@@ -125,14 +125,12 @@ export const databaseLogger = (): MiddlewareHandler => {
       // Override database methods to add logging
       const originalQuery = db.query;
       db.query = function(...args: any[]) {
-        const startTime = Date.now();
         const result = originalQuery.apply(this, args);
 
         if (result && typeof result === 'object') {
           // For async operations
           if (result instanceof Promise) {
             return result.then((res) => {
-              const duration = Date.now() - startTime;
               // Log database operation
               return res;
             });
