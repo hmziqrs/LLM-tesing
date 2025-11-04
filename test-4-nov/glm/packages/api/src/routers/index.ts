@@ -7,7 +7,7 @@ import { csvRouter } from "./csv";
 import { recurringRouter } from "./recurring";
 import { goalsRouter } from "./goals";
 import { reportsRouter } from "./reports";
-import { healthRouter } from "./health";
+import { healthRouter } from "../routes/health";
 
 export const appRouter = {
 	healthCheck: publicProcedure.handler(() => {

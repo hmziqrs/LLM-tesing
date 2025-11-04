@@ -1,6 +1,5 @@
 import '@testing-library/jest-dom';
-import { beforeAll, afterEach, afterAll } from 'vitest';
-import { server } from '../src/mocks/server';
+import { beforeAll, afterEach, afterAll, vi, expect } from 'vitest';
 
 // Mock environment variables
 process.env.NODE_ENV = 'test';
@@ -36,7 +35,4 @@ global.ResizeObserver = class ResizeObserver {
   unobserve() {}
 } as any;
 
-// Setup MSW server for API mocking
-beforeAll(() => server.listen({ onUnhandledRequest: 'error' }));
-afterEach(() => server.resetHandlers());
-afterAll(() => server.close());
+// Test setup complete

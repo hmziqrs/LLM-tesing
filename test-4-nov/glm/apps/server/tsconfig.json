@@ -5,7 +5,12 @@
 		"outDir": "dist",
 		"baseUrl": ".",
 		"paths": {
-			"@/*": ["./src/*"]
+			"@/*": ["./src/*"],
+			"@glm/db": ["../../packages/db/src"],
+			"@glm/db/*": ["../../packages/db/src/*"],
+			"@glm/api": ["../../packages/api/src"],
+			"@glm/api/*": ["../../packages/api/src/*"],
+			"@glm/auth": ["../../packages/auth/src"]
 		},
 		"jsx": "react-jsx",
 		"jsxImportSource": "hono/jsx"

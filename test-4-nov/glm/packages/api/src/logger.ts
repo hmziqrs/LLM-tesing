@@ -1,4 +1,7 @@
-import pino, { Logger } from 'pino';
+import pino from 'pino';
+
+// Extract Logger type from default export
+type Logger = ReturnType<typeof pino>;
 
 const isDevelopment = process.env.NODE_ENV === 'development';
 const isTest = process.env.NODE_ENV === 'test';
@@ -18,8 +21,8 @@ const baseConfig = {
   },
 };
 
-// Development logger with pretty printing
-export const logger: Logger = isDevelopment
+// Development logger with pretty printing (server-side only)
+export const logger: Logger = isDevelopment && typeof window === 'undefined'
   ? pino({
       ...baseConfig,
       transport: {
@@ -28,12 +31,6 @@ export const logger: Logger = isDevelopment
           colorize: true,
           translateTime: 'HH:MM:ss Z',
           ignore: 'pid,hostname',
-          customPrettifiers: {
-            time: (timestamp: string) => {
-              const date = new Date(timestamp);
-              return date.toLocaleTimeString();
-            },
-          },
         },
       },
     })
