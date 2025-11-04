@@ -12,10 +12,16 @@
   },
   "type": "module",
   "scripts": {
-    "build": "tsdown"
+    "build": "tsdown",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:unit": "vitest run --config vitest.unit.config.ts",
+    "test:integration": "vitest run --config vitest.integration.config.ts"
   },
   "devDependencies": {
-    "tsdown": "catalog:"
+    "tsdown": "catalog:",
+    "vitest": "catalog:",
+    "msw": "catalog:"
   },
   "peerDependencies": {
     "typescript": "^5"

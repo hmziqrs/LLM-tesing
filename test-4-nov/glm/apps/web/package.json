@@ -5,7 +5,14 @@
   "scripts": {
     "build": "vite build",
     "serve": "vite preview",
-    "dev": "vite dev --port=3001"
+    "dev": "vite dev --port=3001",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:ui": "vitest --ui",
+    "test:unit": "vitest run --config vitest.unit.config.ts",
+    "test:integration": "vitest run --config vitest.integration.config.ts",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui"
   },
   "dependencies": {
     "@glm/api": "workspace:*",
@@ -47,6 +54,11 @@
     "typescript": "catalog:",
     "vite": "^7.0.2",
     "web-vitals": "^5.0.3",
-    "@tanstack/react-query-devtools": "^5.85.5"
+    "@tanstack/react-query-devtools": "^5.85.5",
+    "@playwright/test": "^1.50.0",
+    "vitest": "^4.0.7",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/user-event": "^14.6.1",
+    "msw": "^2.11.6"
   }
 }
