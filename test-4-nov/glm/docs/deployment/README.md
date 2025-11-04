@@ -2,7 +2,7 @@
 
 ## Overview
 
-This guide covers deploying the Pocket Budget Buddy application to production using Docker and Docker Compose.
+This guide covers deploying the Pocket Budget Buddy application to production using simple Docker and Docker Compose. No Kubernetes bullshit - just straightforward deployment that actually works.
 
 ## Prerequisites
 
@@ -115,28 +115,28 @@ Health endpoints are available:
 - `/api/health/ready` - Readiness probe
 - `/api/health/alive` - Liveness probe
 
-## Scaling
+## Scaling (Simple)
 
 ### Horizontal Scaling
 
-For high availability, deploy multiple web instances:
+For high availability, just deploy more containers:
 
 ```yaml
 # docker-compose.override.yml
 version: '3.8'
 services:
   web:
-    deploy:
-      replicas: 3
     environment:
       - REDIS_URL=redis://redis:6379  # For session storage
-```
+  # Add another web instance if needed
+  web2:
+    extends: web
 
 ### Database Scaling
 
-- Use managed PostgreSQL service (AWS RDS, etc.)
+- Use managed PostgreSQL service (AWS RDS, etc.) - easier than self-hosting
 - Configure connection pooling
-- Add read replicas for heavy read workloads
+- Add read replicas if you really need them (probably not)
 
 ## Monitoring
 
