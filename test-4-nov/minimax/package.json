@@ -17,7 +17,16 @@
       "zod": "^4.1.11",
       "typescript": "^5.8.2",
       "tsdown": "^0.15.5",
-      "@orpc/client": "^1.10.0"
+      "@orpc/client": "^1.10.0",
+      "vitest": "^2.1.8",
+      "@vitest/ui": "^2.1.8",
+      "@testing-library/react": "^16.1.0",
+      "@testing-library/jest-dom": "^6.6.3",
+      "@testing-library/user-event": "^14.5.2",
+      "msw": "^2.7.3",
+      "@playwright/test": "^1.49.1",
+      "supertest": "^7.0.0",
+      "happy-dom": "^16.7.2"
     }
   },
   "scripts": {
@@ -31,7 +40,16 @@
     "db:push": "bun run --filter @minimax/db db:push",
     "db:studio": "bun run --filter @minimax/db db:studio",
     "db:generate": "bun run --filter @minimax/db db:generate",
-    "db:migrate": "bun run --filter @minimax/db db:migrate"
+    "db:migrate": "bun run --filter @minimax/db db:migrate",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:ui": "vitest --ui",
+    "test:unit": "vitest run --dir packages",
+    "test:integration": "vitest run --dir apps/web/src",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui",
+    "test:coverage": "vitest run --coverage",
+    "prepare": "husky install"
   },
   "dependencies": {
     "dotenv": "^17.2.2",
@@ -40,7 +58,9 @@
   "devDependencies": {
     "oxlint": "^1.12.0",
     "tsdown": "^0.15.5",
-    "@types/bun": "^1.2.6"
+    "@types/bun": "^1.2.6",
+    "husky": "^9.1.7",
+    "@vitest/coverage-v8": "^2.1.8"
   },
   "packageManager": "bun@1.3.1"
 }
