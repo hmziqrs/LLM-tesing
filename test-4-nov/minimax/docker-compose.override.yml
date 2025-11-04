@@ -1,0 +1,66 @@
+version: '3.8'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: apps/web/Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+      - DATABASE_URL=postgresql://postgres:postgres@postgres:5432/pocket_budget_buddy
+      - API_URL=http://api:3001
+    depends_on:
+      - postgres
+      - api
+    volumes:
+      - ./apps/web:/app/apps/web
+      - ./packages:/app/packages
+    command: bun run dev
+
+  api:
+    build:
+      context: .
+      dockerfile: apps/api/Dockerfile
+    ports:
+      - "3001:3001"
+    environment:
+      - NODE_ENV=development
+      - DATABASE_URL=postgresql://postgres:postgres@postgres:5432/pocket_budget_buddy
+      - PORT=3001
+    depends_on:
+      - postgres
+    volumes:
+      - ./apps/api:/app/apps/api
+      - ./packages:/app/packages
+    command: bun run dev
+
+  postgres:
+    image: postgres:16-alpine
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=pocket_budget_buddy
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./packages/db/src/migrations:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  uptime-kuma:
+    image: louislam/uptime-kuma:1
+    ports:
+      - "3001:3001"
+    volumes:
+      - uptime-kuma:/app/data
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+  uptime-kuma:
