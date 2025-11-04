@@ -1,7 +1,6 @@
 import { z } from "zod";
 import { protectedProcedure } from "../index";
-import { db } from "@minimax/db";
-import { savingsGoal } from "@minimax/db/src/schema/goals";
+import { db, savingsGoal } from "@minimax/db";
 import { nanoid } from "nanoid";
 
 export const goalsRouter = {

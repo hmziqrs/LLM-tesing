@@ -16,7 +16,7 @@ The Uptime Kuma README describes the project as “an easy-to-use self-hosted mo
 
 ## Helpful Commands
 - `docker compose up uptime-kuma -d` – Start the monitoring service locally.
-- Use `http://localhost:3001` (default) to access the dashboard and add monitors.
+- Use `http://localhost:5561` (default) to access the dashboard and add monitors.
 
 ## Docs & References
 - README: https://raw.githubusercontent.com/louislam/uptime-kuma/master/README.md

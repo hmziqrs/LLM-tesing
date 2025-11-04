@@ -11,7 +11,7 @@ export default defineConfig({
     ['json', { outputFile: 'test-results/results.json' }],
   ],
   use: {
-    baseURL: 'http://localhost:3000',
+    baseURL: 'http://localhost:5560',
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
   },
@@ -44,7 +44,7 @@ export default defineConfig({
 
   webServer: {
     command: 'bun run dev',
-    url: 'http://localhost:3000',
+    url: 'http://localhost:5560',
     reuseExistingServer: !process.env.CI,
     timeout: 120 * 1000,
   },

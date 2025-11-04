@@ -49,10 +49,16 @@
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
     "test:coverage": "vitest run --coverage",
+    "dev:kill": "pkill -f 'bun.*dev' && kill -9 $(lsof -ti:5560) $(lsof -ti:5561) 2>/dev/null || true",
     "prepare": "husky install"
   },
   "dependencies": {
+    "@types/pg": "^8.15.6",
     "dotenv": "^17.2.2",
+    "drizzle-kit": "^0.31.6",
+    "drizzle-orm": "^0.44.7",
+    "nanoid": "^5.1.6",
+    "pg": "^8.16.3",
     "zod": "^4.1.11"
   },
   "devDependencies": {

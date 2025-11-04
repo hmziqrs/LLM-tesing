@@ -1,7 +1,6 @@
 import { z } from "zod";
 import { protectedProcedure } from "../index";
-import { db } from "@minimax/db";
-import { recurringBill } from "@minimax/db/src/schema/recurring";
+import { db, recurringBill } from "@minimax/db";
 import { nanoid } from "nanoid";
 
 export const recurringRouter = {

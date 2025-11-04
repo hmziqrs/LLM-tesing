@@ -1,7 +1,6 @@
 import { z } from "zod";
 import { protectedProcedure } from "../index";
-import { db } from "@minimax/db";
-import { userSettings, partnerInvitation } from "@minimax/db/src/schema/shared";
+import { db, userSettings, partnerInvitation } from "@minimax/db";
 import { nanoid } from "nanoid";
 
 export const authRouter = {

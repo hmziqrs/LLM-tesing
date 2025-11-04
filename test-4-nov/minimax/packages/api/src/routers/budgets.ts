@@ -1,7 +1,6 @@
 import { z } from "zod";
 import { protectedProcedure } from "../index";
-import { db } from "@minimax/db";
-import { budgetCategory, budgetAllocation } from "@minimax/db/src/schema/budget";
+import { db, budgetCategory, budgetAllocation } from "@minimax/db";
 import { nanoid } from "nanoid";
 
 export const budgetsRouter = {

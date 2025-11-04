@@ -6,4 +6,7 @@ import viteReact from "@vitejs/plugin-react";
 
 export default defineConfig({
 	plugins: [tsconfigPaths(), tailwindcss(), tanstackStart(), viteReact()],
+	server: {
+		port: 5561,
+	},
 });

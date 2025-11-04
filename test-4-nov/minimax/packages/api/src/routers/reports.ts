@@ -1,9 +1,7 @@
 import { z } from "zod";
 import { protectedProcedure } from "../index";
-import { db } from "@minimax/db";
-import { transaction } from "@minimax/db/src/schema/transactions";
-import { budgetCategory } from "@minimax/db/src/schema/budget";
-import { and, gte, lte, sql } from "drizzle-orm";
+import { db, transaction, budgetCategory } from "@minimax/db";
+import { and, gte, lte } from "drizzle-orm";
 
 export const reportsRouter = {
 	cashflow: protectedProcedure

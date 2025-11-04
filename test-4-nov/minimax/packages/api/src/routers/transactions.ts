@@ -1,8 +1,6 @@
 import { z } from "zod";
 import { protectedProcedure } from "../index";
-import { db } from "@minimax/db";
-import { transaction, transactionAttachment } from "@minimax/db/src/schema/transactions";
-import { budgetCategory } from "@minimax/db/src/schema/budget";
+import { db, transaction, transactionAttachment, budgetCategory } from "@minimax/db";
 import { nanoid } from "nanoid";
 
 export const transactionsRouter = {
