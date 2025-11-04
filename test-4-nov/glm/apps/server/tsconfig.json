@@ -14,5 +14,11 @@
 		},
 		"jsx": "react-jsx",
 		"jsxImportSource": "hono/jsx"
-	}
+	},
+	"include": ["src/**/*"],
+	"references": [
+		{ "path": "../../packages/db" },
+		{ "path": "../../packages/auth" },
+		{ "path": "../../packages/api" }
+	]
 }

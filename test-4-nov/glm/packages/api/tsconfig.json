@@ -8,9 +8,14 @@
 		"composite": true,
 		"baseUrl": ".",
 		"paths": {
-			"@glm/db": ["../../db/src"],
-			"@glm/db/*": ["../../db/src/*"],
-			"@glm/auth": ["../../auth/src"]
+			"@glm/db": ["../../packages/db/src"],
+			"@glm/db/*": ["../../packages/db/src/*"],
+			"@glm/auth": ["../../packages/auth/src"]
 		}
-	}
+	},
+	"include": ["src/**/*"],
+	"references": [
+		{ "path": "../db" },
+		{ "path": "../auth" }
+	]
 }

@@ -1,3 +1,10 @@
 {
-	"extends": "./tsconfig.base.json"
+	"extends": "./tsconfig.base.json",
+	"references": [
+		{ "path": "./packages/db" },
+		{ "path": "./packages/auth" },
+		{ "path": "./packages/api" },
+		{ "path": "./apps/server" },
+		{ "path": "./apps/web" }
+	]
 }
