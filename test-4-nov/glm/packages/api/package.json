@@ -19,21 +19,22 @@
     "test:integration": "vitest run --config vitest.integration.config.ts"
   },
   "devDependencies": {
-    "tsdown": "catalog:",
-    "vitest": "catalog:",
-    "msw": "catalog:"
+    "tsdown": "^0.15.5",
+    "vitest": "^4.0.7",
+    "msw": "^2.11.6"
   },
   "peerDependencies": {
     "typescript": "^5"
   },
   "dependencies": {
-    "@orpc/server": "catalog:",
-    "@orpc/client": "catalog:",
-    "@orpc/openapi": "catalog:",
-    "@orpc/zod": "catalog:",
-    "hono": "catalog:",
-    "dotenv": "catalog:",
-    "zod": "catalog:",
+    "@orpc/server": "^1.10.0",
+    "@orpc/client": "^1.10.0",
+    "@orpc/openapi": "^1.10.0",
+    "@orpc/zod": "^1.10.0",
+    "hono": "^4.8.2",
+    "dotenv": "^17.2.2",
+    "zod": "^4.1.11",
+    "pino": "^9.6.0",
     "@glm/auth": "workspace:*",
     "@glm/db": "workspace:*"
   }
